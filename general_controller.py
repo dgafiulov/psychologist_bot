@@ -46,9 +46,9 @@ class GeneralController:
                 return -1
 
     def get_ai_message(self, chat_id, text):
-        self.database.insert_data_into_db(chat_id, text, 'user', self.get_date())
+        self.database.insert_data_into_db(chat_id, text, 'user')
         message_history = self.database.get_data_from_db(chat_id)
         message_history = data_processor.edit_data(message_history)
         ai_answer = self.ai.get_answer(self.engine, message_history).choices[0].message.content
-        self.database.insert_data_into_db(chat_id, ai_answer, 'system', self.get_date())
+        self.database.insert_data_into_db(chat_id, ai_answer, 'system')
         return ai_answer

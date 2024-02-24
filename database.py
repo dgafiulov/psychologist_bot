@@ -36,10 +36,10 @@ class Database:
         self.disconnect()
         return data
 
-    def insert_data_into_db(self, chat_id, text, role, date):
+    def insert_data_into_db(self, chat_id, text, role):
         self.connect()
         message_id = self.get_last_message_id(chat_id) + 1
-        self.cursor.execute(f'INSERT INTO messages_history(chat_id, message_id, answer, role, date) VALUES {(chat_id, message_id, text, role, date)}')
+        self.cursor.execute(f'INSERT INTO messages_history(chat_id, message_id, answer, role, date) VALUES {(chat_id, message_id, text, role, self.get_date())}')
         self.disconnect()
 
     def get_amount_of_user(self, date=None):
