@@ -21,8 +21,8 @@ class Database:
         self.cursor.execute(f'SELECT message_id, answer FROM messages_history WHERE user_id = {user_id}')
         return self.cursor.fetchall()
 
-    def insert_data_into_db(self, data):  # data is a list of tuples: [(user_id, message_id, answer), (user_id, message_id, answer), (user_id, message_id, answer)]
+    def insert_data_into_db(self, data):  # data is a list of tuples: [(chat_id, message_id, answer), (chat_id, message_id, answer), (chat_id, message_id, answer)]
         self.connect()
         for i in data:
-            self.cursor.execute(f'INSERT INTO messages(user_id, message_id, answer) VALUES {i}')
+            self.cursor.execute(f'INSERT INTO messages(chat_id, message_id, answer) VALUES {i}')
         self.disconnect()
