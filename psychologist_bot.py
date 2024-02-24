@@ -1,8 +1,6 @@
 import telebot
-
 import texts
 from general_controller import GeneralController
-from texts import *
 
 general_controller = GeneralController()
 token = general_controller.get_tg_token()
