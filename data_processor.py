@@ -10,4 +10,6 @@ def edit_data(data):
             'content': i[1]
         })
 
+    edited[len(edited) - 1]['content'] = texts.ROLE_CONTROL + edited[len(edited) - 1]['content']
+
     return edited

@@ -7,12 +7,12 @@ token = general_controller.get_tg_token()
 bot = telebot.TeleBot(token)
 
 
-@bot.message_handler(commands=["start"])
+@bot.message_handler(commands=['start'])
 def start(message):
     bot.send_message(message.chat.id, texts.GREETING_TEXT)
 
 
-@bot.message_handler(commands=["termsOfUse"])
+@bot.message_handler(commands=['termsOfUse'])
 def terms_of_use(message):
     bot.send_message(message.chat.id, texts.TERMS_OF_USE)
 
